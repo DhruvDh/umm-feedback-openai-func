@@ -59,7 +59,7 @@ router
     ];
 
     const completionConfig: ChatCompletionMessageParam = {
-      model: "gpt-3.5-turbo",
+      model: "gpt-3.5-turbo-1106",
       n: 1,
       functions,
       messages: body,
