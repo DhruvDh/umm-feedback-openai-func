@@ -29,7 +29,8 @@ router
     ctx.response.statusText = "OK";
   })
   .post("/", async (ctx) => {
-    const body = await (await ctx.request.body({ type: "json" })).value;
+    const body = await ctx.request.body.json();
+    console.log(body);
     // const messages = body.messages;
     // const functions = body.functions;
 
