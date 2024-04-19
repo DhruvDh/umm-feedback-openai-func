@@ -36,29 +36,32 @@ router
 
     const functions = [
       {
-        name: "get_method_body",
-        description:
-          "Returns the method body for a given method inside a given class.",
-        parameters: {
-          type: "object",
-          properties: {
-            params: {
-              type: "array",
-              items: {
-                type: "object",
-                properties: {
-                  className: {
-                    type: "string",
+        type: "function",
+        function: {
+          name: "get_method_body",
+          description:
+            "Returns the method body for a given method inside a given class.",
+          parameters: {
+            type: "object",
+            properties: {
+              params: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    className: {
+                      type: "string",
+                    },
+                    methodName: {
+                      type: "string",
+                    },
                   },
-                  methodName: {
-                    type: "string",
-                  },
+                  required: ["className", "methodName"],
                 },
-                required: ["className", "methodName"],
               },
             },
+            required: ["params"],
           },
-          required: ["params"],
         },
       },
     ];
