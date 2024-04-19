@@ -8,9 +8,9 @@ import {
 const router = new Router();
 const app = new Application();
 const openai = new OpenAI({
-  // apiKey: Deno.env.get("OPENAI_API_KEY") ?? "",
-  apiKey: Deno.env.get("TOGETHER_API_KEY") ?? "",
-  baseURL: "https://api.together.xyz",
+  apiKey: Deno.env.get("OPENAI_API_KEY") ?? "",
+  // apiKey: Deno.env.get("TOGETHER_API_KEY") ?? "",
+  // baseURL: "https://api.together.xyz",
 });
 
 app.use((ctx, next) => {
@@ -30,7 +30,7 @@ router
   })
   .post("/", async (ctx) => {
     const body = await ctx.request.body.json();
-    console.log(body);
+    // console.log(body);
     // const messages = body.messages;
     // const functions = body.functions;
 
@@ -67,8 +67,8 @@ router
     ];
 
     const completionConfig: ChatCompletionMessageParam = {
-      // model: "gpt-3.5-turbo-0125",
-      model: "togethercomputer/CodeLlama-34b-Instruct",
+      model: "gpt-3.5-turbo-0125",
+      // model: "togethercomputer/CodeLlama-34b-Instruct",
       n: 1,
       tools: functions,
       messages: body,
@@ -84,7 +84,7 @@ router
     }
 
     ctx.response.body = await resp.json();
-    console.log(ctx.response.body);
+    // console.log(ctx.response.body);
   });
 
 app.use(router.routes());
