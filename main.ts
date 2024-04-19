@@ -65,7 +65,7 @@ router
 
     const completionConfig: ChatCompletionMessageParam = {
       // model: "gpt-3.5-turbo-1106",
-      model: "meta-llama/Llama-3-70b-chat-hf",
+      model: "togethercomputer/CodeLlama-34b-Instruct",
       n: 1,
       tools: functions,
       messages: body,
