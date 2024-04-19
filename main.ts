@@ -72,7 +72,7 @@ router
       n: 1,
       tools: functions,
       messages: body,
-      tool_choice: { name: "get_method_body" },
+      tool_choice: { type: "function", function: { name: "get_method_body" } },
       parse: JSON.parse,
     };
 
