@@ -7,7 +7,11 @@ import {
 
 const router = new Router();
 const app = new Application();
-const openai = new OpenAI();
+const openai = new OpenAI({
+  // apiKey: Deno.env.get("OPENAI_API_KEY") ?? "",
+  apiKey: Deno.env.get("TOGETHER_API_KEY") ?? "",
+  baseURL: "https://api.together.xyz",
+});
 
 app.use((ctx, next) => {
   ctx.response.headers.set("Access-Control-Allow-Origin", "*");
@@ -59,11 +63,12 @@ router
     ];
 
     const completionConfig: ChatCompletionMessageParam = {
-      model: "gpt-3.5-turbo-1106",
+      // model: "gpt-3.5-turbo-1106",
+      model: "meta-llama/Llama-3-70b-chat-hf",
       n: 1,
-      functions,
+      tools: functions,
       messages: body,
-      function_call: { name: "get_method_body" },
+      tool_choice: { name: "get_method_body" },
       parse: JSON.parse,
     };
 
