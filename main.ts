@@ -67,7 +67,7 @@ router
     ];
 
     const completionConfig: ChatCompletionMessageParam = {
-      model: "gpt-3.5-turbo-0125",
+      model: "gpt-4o",
       // model: "togethercomputer/CodeLlama-34b-Instruct",
       n: 1,
       tools: functions,
