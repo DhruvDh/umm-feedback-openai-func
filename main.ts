@@ -70,6 +70,7 @@ router
       model: "gpt-4o",
       // model: "togethercomputer/CodeLlama-34b-Instruct",
       n: 1,
+      temperature: 0.6,
       tools: functions,
       messages: body,
       tool_choice: { type: "function", function: { name: "get_method_body" } },
