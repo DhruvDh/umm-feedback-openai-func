@@ -67,7 +67,7 @@ router
     ];
 
     const completionConfig: ChatCompletionMessageParam = {
-      model: "gpt-4o",
+      model: "gpt-4o-mini",
       // model: "togethercomputer/CodeLlama-34b-Instruct",
       n: 1,
       temperature: 0.6,
